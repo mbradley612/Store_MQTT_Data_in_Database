@@ -9,26 +9,22 @@
 import sqlite3
 
 # SQLite DB Name
-DB_Name =  "IoT.db"
+DB_Name =  "BoatGPS.db"
 
 # SQLite DB Table Schema
 TableSchema="""
-drop table if exists DHT22_Temperature_Data ;
-create table DHT22_Temperature_Data (
+drop table if exists GPSIMU_Data ;
+create table GPSIMU_Data (
   id integer primary key autoincrement,
-  SensorID text,
-  Date_n_Time text,
-  Temperature text
+  lon float,
+  lat float,
+  speed float,
+  track float,
+  timestamp datetime,
+  mode integer
+  
 );
 
-
-drop table if exists DHT22_Humidity_Data ;
-create table DHT22_Humidity_Data (
-  id integer primary key autoincrement,
-  SensorID text,
-  Date_n_Time text,
-  Humidity text
-);
 """
 
 #Connect or Create DB File
